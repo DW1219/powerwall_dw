@@ -1,0 +1,158 @@
+
+/* display flex로 해야 브라우저 창 반응형 영향x.  padding은 상하좌우 여백*/
+.background{
+    background-color: rgb(24, 22, 22);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.solarToGridSVG {
+    motion-path: path('M177 139C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
+    offset-path: path('M177 139C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
+    animation: moveTo 2s linear forwards infinite, colorsolarToGridSVG 2s linear forwards infinite;
+  }
+
+
+.solarToHomeSVG{
+    motion-path: path('M183 139C183 160.152 183 205.277 183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    offset-path: path('M183 139C183 160.152 183 205.277 183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    animation: moveTo 2s linear forwards infinite, colorSolarToHomeSVG 2s linear forwards infinite;
+}
+
+.solarToPowerwallSVG{
+    motion-path: path('M180 139L180 325');
+    offset-path: path('M180 139L180 325');
+    animation: moveTo 2s linear forwards infinite, colorSolarToPowerwallSVG 2s linear forwards infinite;
+}
+
+/* border-radius는 테투리 둥근정도로 값이 크면 거의 원형됨
+box-shadow 는 그림자로 3번째 : blur 정도,  4번째 : 퍼지는 범위 크기
+*/
+/*
+ M96 0C96 21.1522 96 66.277 96 77.5582C96 88.8394 106.633 90.4846 111.949 89.897H186    5칸 우측 이동
+M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89.897H191
+*/
+/*
+.solarToGrid{
+
+    position: relative;
+    width: 5px;
+    height: 5px;
+    border-radius: 35px;
+    offset: path('M118 46C118 67.1522 118 112.277 118 123.558C118 134.839 107.367 136.485 102.051 135.897H28') auto;
+    
+    animation: moveTo 2s linear forwards infinite, colorsolarToGrid 2s linear forwards infinite;
+}
+*/
+
+/*
+.solarToGrid{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 35px;
+    offset: path('M118 46C118 67.1522 118 112.277 118 123.558C118 134.839 107.367 136.485 102.051 135.897H28') auto;
+
+    animation: moveTo 2s linear forwards infinite, colorsolarToGrid 2s linear forwards infinite;
+}
+*/
+
+.solarToHome{
+    width: 5px;
+    height: 5px;
+    border-radius: 35px;
+    offset: path('M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89.897H191');
+    
+    animation: moveTo 2s linear forwards infinite, colorSolarToHome 2s linear forwards infinite;
+}
+
+.solarToPowerwall{
+    width: 5px;
+    height: 5px;
+    border-radius: 35px;
+    offset: path('M98 0L98 186') auto;
+    animation: moveTo 2s linear forwards infinite, colorsolarToPowerwall 2s linear forwards infinite;
+}
+
+@keyframes moveTo{
+    0%{
+        offset-distance: 0%
+    }
+    30%{
+        opacity: 0.5;
+    }
+    40%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0.5;
+    }
+    100%{
+        offset-distance: 100%;
+    }
+}
+/*
+@keyframes colorsolarToGrid{
+    0%{
+        background-color: rgb(255, 255, 0);
+        box-shadow: 0 0 5px 5px rgba(255, 217, 0, 0.555);
+    }
+    100%{
+        background-color: rgb(255, 0, 0);
+        box-shadow: 0 0 5px 5px rgba(255, 51, 0, 0.555);
+    }
+}*/
+@keyframes colorsolarToGridSVG{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(255, 0, 0);
+    }
+}
+/*
+@keyframes colorSolarToHome{
+    0%{
+        background-color: yellow;
+        box-shadow: 0 0 5px 5px rgba(255, 217, 0, 0.555);
+    }
+    100%{
+        background-color: rgb(0, 162, 255);
+        box-shadow: 0 0 5px 5px rgba(0, 174, 255, 0.555);
+    }
+}*/
+@keyframes colorSolarToHomeSVG{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(0, 81, 255);
+    }
+}
+/*
+@keyframes colorsolarToPowerwall{
+    0%{
+        background-color: rgb(255, 255, 0);
+        box-shadow: 0 0 5px 5px rgba(255, 217, 0, 0.555);
+    }
+    100%{
+        background-color: rgb(21, 255, 0);
+        box-shadow: 0 0 5px 5px rgba(0, 255, 13, 0.555);
+    }
+}*/
+
+@keyframes colorSolarToPowerwallSVG{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(0, 255, 42);
+    }
+}
