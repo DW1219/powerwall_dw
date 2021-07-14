@@ -1,37 +1,110 @@
 
 /* display flex로 해야 브라우저 창 반응형 영향x.  padding은 상하좌우 여백*/
 .background{
-    background-color: rgb(24, 22, 22);
+    background-color: rgb(20, 19, 19);
     padding: 10px;
     display: flex;
     justify-content: center;
 }
 
+.switchForm{
+    width: 70%;
+    position: absolute;
+    margin-left: 12%;
+}
 
-.solarToGridSVG {
+/*  Solar Part  */
+.solarToGridSvg {
     motion-path: path('M177 139C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
     offset-path: path('M177 139C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
-    animation: moveTo 2s linear forwards infinite, colorsolarToGridSVG 2s linear forwards infinite;
-  }
-
-
-.solarToHomeSVG{
-    motion-path: path('M183 139C183 160.152 183 205.277 183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
-    offset-path: path('M183 139C183 160.152 183 205.277 183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
-    animation: moveTo 2s linear forwards infinite, colorSolarToHomeSVG 2s linear forwards infinite;
+    animation: moveTo 2s linear forwards infinite, colorSolarToGridSvg 2s linear forwards infinite;
+}
+.solarToGridSvgBooster {
+    motion-path: path('M177 139C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
+    offset-path: path('M177 139C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
+    animation: moveTo 1.5s linear forwards infinite, colorSolarToGridSvg 1.5s linear forwards infinite;
+}
+.solarToGridSvgBoosterDuo {
+    motion-path: path('M177 119C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
+    offset-path: path('M177 119C177 160.152 177 205.277 177 216.558C177 227.839 167.549 229.485 162.823 228.897H97');
+    animation: moveTo 1.5s .7s linear forwards infinite, colorSolarToGridSvg 1.5s .7s linear forwards infinite;
 }
 
-.solarToPowerwallSVG{
+.solarToHomeSvg {
+    motion-path: path('M183 139C183 160.152 183 205.277 M183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    offset-path: path('M183 139C183 160.152 183 205.277 183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    animation: moveTo 2s linear forwards infinite, colorSolarToHomeSvg 2s linear forwards infinite;
+}
+.solarToHomeSvgBooster {
+    motion-path: path('M183 139C183 160.152 183 205.277 M183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    offset-path: path('M183 139C183 160.152 183 205.277 183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    animation: moveTo 1.5s linear forwards infinite, colorSolarToHomeSvg 1.5s linear forwards infinite;
+}
+.solarToHomeSvgBoosterDuo {
+    motion-path: path('M183 119C183 160.152 183 205.277 M183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    offset-path: path('M183 119C183 160.152 183 205.277 183 216.558C183 227.839 192.451 229.485 197.177 228.897H263');
+    animation: moveTo 1.5s .7s linear forwards infinite, colorSolarToHomeSvg 1.5s .7s linear forwards infinite;
+}
+
+.solarToPowerwallSvg {
     motion-path: path('M180 139L180 325');
     offset-path: path('M180 139L180 325');
-    animation: moveTo 2s linear forwards infinite, colorSolarToPowerwallSVG 2s linear forwards infinite;
+    animation: moveTo 2s linear forwards infinite, colorSolarToPowerwallSvg 2s linear forwards infinite;
 }
+.solarToPowerwallSvgBooster {
+    motion-path: path('M180 139L180 325');
+    offset-path: path('M180 139L180 325');
+    animation: moveTo 1.5s linear forwards infinite, colorSolarToPowerwallSvg 1.5s linear forwards infinite;
+}
+.solarToPowerwallSvgBoosterDuo{
+    motion-path: path('M180 119L180 325');
+    offset-path: path('M180 119L180 325');
+    animation: moveTo 1.5s .7s linear forwards infinite, colorSolarToPowerwallSvg 1.5s .7s linear forwards infinite;
+}
+
+
+/*  Grid Part  */
+.gridToHomeSvg{
+    motion-path: path('M97 232L263 232');
+    offset-path: path('M97 232L263 232');
+    animation: moveTo 2s linear forwards infinite, colorGridToHomeSvg 2s linear forwards infinite;
+}
+.gridToHomeSvgBooster {
+    motion-path: path('M97 232L263 232');
+    offset-path: path('M97 232L263 232');
+    animation: moveTo 1.5s linear forwards infinite, colorGridToHomeSvg 1.5s linear forwards infinite;
+}
+.gridToHomeSvgBoosterDuo {
+    motion-path: path('M97 232L263 232');
+    offset-path: path('M97 232L263 232');
+    animation: moveTo 1.5s .7s linear forwards infinite, colorGridToHomeSvg 1.5s .7s linear forwards infinite;
+}
+
+.gridToPowerwallSvg{
+    motion-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    offset-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    animation: moveTo 2s linear forwards infinite, colorGridToPowerwallSvg 2s linear forwards infinite;
+}
+.gridToPowerwallSvgBooster {
+    motion-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    offset-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    animation: moveTo 1.5s linear forwards infinite, colorGridToPowerwallSvg 1.5s linear forwards infinite;
+}
+.gridToPowerwallSvgBoosterDuo {
+    motion-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    offset-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    animation: moveTo 1.5s .7s linear forwards infinite, colorGridToPowerwallSvg 1.5s .7s linear forwards infinite;
+}
+
+
+
 
 /* border-radius는 테투리 둥근정도로 값이 크면 거의 원형됨
 box-shadow 는 그림자로 3번째 : blur 정도,  4번째 : 퍼지는 범위 크기
 */
 /*
- M96 0C96 21.1522 96 66.277 96 77.5582C96 88.8394 106.633 90.4846 111.949 89.897H186    5칸 우측 이동
+x    (x     y)   (x   y)  x        x      y      x      y        x            x
+M96 0C96 21.1522 96 66.277 96 77.5582C96 88.8394 106.633 90.4846 111.949 89.897H186    5칸 우측 이동
 M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89.897H191
 */
 /*
@@ -60,7 +133,7 @@ M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89
     animation: moveTo 2s linear forwards infinite, colorsolarToGrid 2s linear forwards infinite;
 }
 */
-
+/*
 .solarToHome{
     width: 5px;
     height: 5px;
@@ -77,10 +150,10 @@ M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89
     offset: path('M98 0L98 186') auto;
     animation: moveTo 2s linear forwards infinite, colorsolarToPowerwall 2s linear forwards infinite;
 }
-
+*/
 @keyframes moveTo{
     0%{
-        offset-distance: 0%
+        offset-distance: 0%;
     }
     30%{
         opacity: 0.5;
@@ -109,14 +182,7 @@ M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89
         box-shadow: 0 0 5px 5px rgba(255, 51, 0, 0.555);
     }
 }*/
-@keyframes colorsolarToGridSVG{
-    0%{
-        fill:rgb(255, 255, 0);
-    }
-    100%{
-        fill:rgb(255, 0, 0);
-    }
-}
+
 /*
 @keyframes colorSolarToHome{
     0%{
@@ -128,14 +194,7 @@ M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89
         box-shadow: 0 0 5px 5px rgba(0, 174, 255, 0.555);
     }
 }*/
-@keyframes colorSolarToHomeSVG{
-    0%{
-        fill:rgb(255, 255, 0);
-    }
-    100%{
-        fill:rgb(0, 81, 255);
-    }
-}
+
 /*
 @keyframes colorsolarToPowerwall{
     0%{
@@ -147,12 +206,62 @@ M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89
         box-shadow: 0 0 5px 5px rgba(0, 255, 13, 0.555);
     }
 }*/
-
-@keyframes colorSolarToPowerwallSVG{
+/* Solar To Something */
+@keyframes colorSolarToGridSvg{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(255, 0, 0);
+    }
+}
+@keyframes colorSolarToHomeSvg{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(0, 81, 255);
+    }
+}
+@keyframes colorSolarToPowerwallSvg{
     0%{
         fill:rgb(255, 255, 0);
     }
     100%{
         fill:rgb(0, 255, 42);
+    }
+}
+/* Grid To Something */
+@keyframes colorGridToHomeSvg{
+    0%{
+        fill:rgb(255, 0, 0);
+    }
+    100%{
+        fill:rgb(0, 81, 255);
+    }
+}
+@keyframes colorGridToPowerwallSvg{
+    0%{
+        fill:rgb(255, 0, 0);
+    }
+    100%{
+        fill:rgb(0, 255, 42);
+    }
+}
+/* Powerwall To Something */
+@keyframes colorPowerwallToHomeSvg{
+    0%{
+        fill:rgb(0, 255, 42);
+    }
+    100%{
+        fill:rgb(0, 81, 255);
+    }
+}
+@keyframes colorPowerwallToGridSvg{
+    0%{
+        fill:rgb(0, 255, 42);
+    }
+    100%{
+        fill:rgb(255, 0, 0);
     }
 }
