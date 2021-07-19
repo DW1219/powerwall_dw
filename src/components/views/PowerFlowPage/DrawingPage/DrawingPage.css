@@ -1,17 +1,21 @@
-
 /* display flex로 해야 브라우저 창 반응형 영향x.  padding은 상하좌우 여백*/
 .background{
-    background-color: rgb(20, 19, 19);
+    background-color: rgb(27, 27, 27);
     padding: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.switchForm1{
+    display: flex;
+    justify-content: center;
+}
+.switchForm2{
     display: flex;
     justify-content: center;
 }
 
-.switchForm{
-    width: 70%;
-    position: absolute;
-    margin-left: 12%;
-}
 
 /*  Solar Part  */
 .solarToGridSvg {
@@ -75,8 +79,8 @@
     animation: moveTo 1.5s linear forwards infinite, colorGridToHomeSvg 1.5s linear forwards infinite;
 }
 .gridToHomeSvgBoosterDuo {
-    motion-path: path('M97 232L263 232');
-    offset-path: path('M97 232L263 232');
+    motion-path: path('M87 232L253 232');
+    offset-path: path('M87 232L253 232');
     animation: moveTo 1.5s .7s linear forwards infinite, colorGridToHomeSvg 1.5s .7s linear forwards infinite;
 }
 
@@ -91,13 +95,110 @@
     animation: moveTo 1.5s linear forwards infinite, colorGridToPowerwallSvg 1.5s linear forwards infinite;
 }
 .gridToPowerwallSvgBoosterDuo {
-    motion-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
-    offset-path: path('M97 235C115.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    motion-path: path('M87 235C105.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
+    offset-path: path('M87 235C105.802 235 155.913 235 165.941 235C175.968 235 177.431 245.633 176.908 250.949L176.908 325');
     animation: moveTo 1.5s .7s linear forwards infinite, colorGridToPowerwallSvg 1.5s .7s linear forwards infinite;
 }
 
+/*  Powerwall Part  */
+.powerwallToHomeSvg{
+    motion-path: path('M183 325C183 303.848 183 258.723 183 247.442C183 236.161 192.451 234.515 197.177 235.103H263');
+    offset-path: path('M183 325C183 303.848 183 258.723 183 247.442C183 236.161 192.451 234.515 197.177 235.103H263');
+    animation: moveTo 2s linear forwards infinite, colorPowerwallToHomeSvg 2s linear forwards infinite;
+}
+.powerwallToHomeSvgBooster {
+    motion-path: path('M183 325C183 303.848 183 258.723 183 247.442C183 236.161 192.451 234.515 197.177 235.103H263');
+    offset-path: path('M183 325C183 303.848 183 258.723 183 247.442C183 236.161 192.451 234.515 197.177 235.103H263');
+    animation: moveTo 1.5s linear forwards infinite, colorPowerwallToHomeSvg 1.5s linear forwards infinite;
+}
+.powerwallToHomeSvgBoosterDuo {
+    motion-path: path('M183 345C183 303.848 183 258.723 183 247.442C183 236.161 192.451 234.515 197.177 235.103H263');
+    offset-path: path('M183 345C183 303.848 183 258.723 183 247.442C183 236.161 192.451 234.515 197.177 235.103H263');
+    animation: moveTo 1.5s .7s linear forwards infinite, colorPowerwallToHomeSvg 1.5s .7s linear forwards infinite;
+}
 
 
+/* Moving Animation */
+@keyframes moveTo{
+    0%{
+        offset-distance: 0%;
+    }
+    30%{
+        opacity: 0.5;
+    }
+    40%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0.5;
+    }
+    100%{
+        offset-distance: 100%;
+    }
+}
+
+/* Color Animation - Solar To Something */
+@keyframes colorSolarToGridSvg{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(255, 0, 0);
+    }
+}
+@keyframes colorSolarToHomeSvg{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(0, 81, 255);
+    }
+}
+@keyframes colorSolarToPowerwallSvg{
+    0%{
+        fill:rgb(255, 255, 0);
+    }
+    100%{
+        fill:rgb(0, 255, 42);
+    }
+}
+/* Color Animation - Grid To Something */
+@keyframes colorGridToHomeSvg{
+    0%{
+        fill:rgb(255, 0, 0);
+    }
+    100%{
+        fill:rgb(0, 81, 255);
+    }
+}
+@keyframes colorGridToPowerwallSvg{
+    0%{
+        fill:rgb(255, 0, 0);
+    }
+    100%{
+        fill:rgb(0, 255, 42);
+    }
+}
+/* Color Animation - Powerwall To Something */
+@keyframes colorPowerwallToHomeSvg{
+    0%{
+        fill:rgb(0, 255, 42);
+    }
+    100%{
+        fill:rgb(0, 81, 255);
+    }
+}
+@keyframes colorPowerwallToGridSvg{
+    0%{
+        fill:rgb(0, 255, 42);
+    }
+    100%{
+        fill:rgb(255, 0, 0);
+    }
+}
 
 /* border-radius는 테투리 둥근정도로 값이 크면 거의 원형됨
 box-shadow 는 그림자로 3번째 : blur 정도,  4번째 : 퍼지는 범위 크기
@@ -151,26 +252,7 @@ M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89
     animation: moveTo 2s linear forwards infinite, colorsolarToPowerwall 2s linear forwards infinite;
 }
 */
-@keyframes moveTo{
-    0%{
-        offset-distance: 0%;
-    }
-    30%{
-        opacity: 0.5;
-    }
-    40%{
-        opacity: 1;
-    }
-    50%{
-        opacity: 1;
-    }
-    80%{
-        opacity: 0.5;
-    }
-    100%{
-        offset-distance: 100%;
-    }
-}
+
 /*
 @keyframes colorsolarToGrid{
     0%{
@@ -207,61 +289,4 @@ M101 0C101 21.1522 101 66.277 101 77.5582C101 88.8394 111.633 90.4846 116.949 89
     }
 }*/
 /* Solar To Something */
-@keyframes colorSolarToGridSvg{
-    0%{
-        fill:rgb(255, 255, 0);
-    }
-    100%{
-        fill:rgb(255, 0, 0);
-    }
-}
-@keyframes colorSolarToHomeSvg{
-    0%{
-        fill:rgb(255, 255, 0);
-    }
-    100%{
-        fill:rgb(0, 81, 255);
-    }
-}
-@keyframes colorSolarToPowerwallSvg{
-    0%{
-        fill:rgb(255, 255, 0);
-    }
-    100%{
-        fill:rgb(0, 255, 42);
-    }
-}
-/* Grid To Something */
-@keyframes colorGridToHomeSvg{
-    0%{
-        fill:rgb(255, 0, 0);
-    }
-    100%{
-        fill:rgb(0, 81, 255);
-    }
-}
-@keyframes colorGridToPowerwallSvg{
-    0%{
-        fill:rgb(255, 0, 0);
-    }
-    100%{
-        fill:rgb(0, 255, 42);
-    }
-}
-/* Powerwall To Something */
-@keyframes colorPowerwallToHomeSvg{
-    0%{
-        fill:rgb(0, 255, 42);
-    }
-    100%{
-        fill:rgb(0, 81, 255);
-    }
-}
-@keyframes colorPowerwallToGridSvg{
-    0%{
-        fill:rgb(0, 255, 42);
-    }
-    100%{
-        fill:rgb(255, 0, 0);
-    }
-}
+

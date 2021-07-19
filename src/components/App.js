@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import AnimationTestPage from "./views/AnimationTestPage/AnimationTestPage.js";
+import PowerFlowPage from "./views/PowerFlowPage/PowerFlowPage.js";
 
 function App() {
   return (
-    <div style={{ paddingTop: '1%'}}>
+    <div>
 
-          <Route exact path="/" component={AnimationTestPage} />
+      <Route exact path="/" component={PowerFlowPage} />
 
     </div>
   );

@@ -1,0 +1,1 @@
+export const Receive_Energy = 'receive_energy';
